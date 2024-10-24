@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
-
     @font-face {
         font-family: 'MyCustomFont';
         src: url('./fonts/woff/IRANYekanX-Black.woff') format('woff2'),
@@ -11,12 +10,6 @@
         font-style: normal;
     }
 
-    /*------------------*
-     * Global variables *
-     *------------------*/
-    /*------------*
-     * CSS Styles *
-     *------------*/
     *,
     *:before,
     *:after {
@@ -28,13 +21,13 @@
     body {
         font-family: "MyCustomFont", sans-serif;
         align-items: center;
-        background: linear-gradient(135deg, #404040, #333);
-        background-color: #333;
+        background: #333 linear-gradient(135deg, #404040, #333);
         display: flex;
         justify-content: center;
         min-height: 100vh;
         padding: 24px;
     }
+
     body::-webkit-scrollbar {
         display: none;
     }
@@ -43,6 +36,7 @@
         color: inherit;
         text-decoration: none;
     }
+
     a:hover {
         text-decoration: underline;
     }
@@ -59,6 +53,7 @@
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         transition: transform 0.6s cubic-bezier(0.49, 0.23, 0.58, 0.49);
     }
+
     .card.flipped {
         transform: translateX(-100%) rotateY(-180deg);
     }
@@ -67,9 +62,8 @@
     .card-back {
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-        background: repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.3), transparent 1px, rgba(0, 0, 0, 0.3) 2px);
         background-size: 3px 3px;
-        background-color: #302f34;
+        background: #302f34 repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.3), transparent 1px, rgba(0, 0, 0, 0.3) 2px);
         border-radius: 1px;
         box-shadow: 0px -6px 8px 0px rgba(0, 0, 0, 0.1), 0px 6px 8px 0px rgba(0, 0, 0, 0.1), 6px 0px 8px 0px rgba(0, 0, 0, 0.1), -6px 0px 8px 0px rgba(0, 0, 0, 0.1);
         cursor: pointer;
@@ -84,15 +78,16 @@
     .card-back {
         transform: rotateY(180deg);
     }
+
     .card-back .layer {
-        background: repeating-linear-gradient(135deg, rgba(76, 71, 31, 0.3), transparent 1px, rgba(76, 71, 31, 0.3) 2px);
         background-size: 3px 3px;
-        background-color: #d4cd96;
+        background: #d4cd96 repeating-linear-gradient(135deg, rgba(76, 71, 31, 0.3), transparent 1px, rgba(76, 71, 31, 0.3) 2px);
         color: #302f34;
         height: 100%;
         position: relative;
         width: 100%;
     }
+
     .card-back .layer:after {
         background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), transparent);
         content: "";
@@ -103,30 +98,37 @@
         top: 0;
         width: 100%;
     }
+
     .card-back .layer .top,
     .card-back .layer .bottom {
         left: 8%;
         position: absolute;
         z-index: 1;
     }
+
     .card-back .layer .top {
         top: 12%;
     }
+
     .card-back .layer .bottom {
         bottom: 12%;
     }
+
     .card-back .layer h2, .card-back .layer h3, .card-back .layer h4 {
         font-weight: 400;
         margin: 2px 0;
     }
+
     .card-back .layer h2 {
         font-size: 18px;
         font-weight: 500;
         text-transform: uppercase;
     }
+
     .card-back .layer h3 {
         font-size: 16px;
     }
+
     .card-back .layer h4 {
         font-size: 16px;
         font-style: italic;
@@ -142,6 +144,7 @@
         position: relative;
         width: 100%;
     }
+
     .card-front .layer h1 {
         font-size: 32px;
         font-weight: 400;
@@ -150,6 +153,7 @@
         padding: 6px 18px 4px;
         text-align: center;
     }
+
     .card-front .layer .corner {
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
@@ -159,20 +163,24 @@
         position: absolute;
         width: 12px;
     }
+
     .card-front .layer .corner:nth-of-type(1) {
         right: 0;
         top: 0;
     }
+
     .card-front .layer .corner:nth-of-type(2) {
         left: 0;
         top: 0;
         transform: rotateZ(-90deg);
     }
+
     .card-front .layer .corner:nth-of-type(3) {
         bottom: 0;
         left: 0;
         transform: rotateZ(180deg);
     }
+
     .card-front .layer .corner:nth-of-type(4) {
         bottom: 0;
         right: 0;
@@ -187,19 +195,59 @@
         width: 100%;
         transition: transform 1s;
     }
-    h6{
+
+    h6 {
         color: #fff595;
         padding-top: 20px;
         text-align: center;
     }
+
     .card-back .layer .top, .card-back .layer .bottom {
         left: 50%;
         transform: translateX(-50%);
         position: absolute;
         z-index: 1;
     }
-    .bottom{
+
+    .bottom {
         text-align: end;
+    }
+
+    /*------------------*
+     * Media Queries *
+     *------------------*/
+    @media (max-width: 768px) { /* تبلت */
+        .card-wrapper {
+            height: 220px;
+            max-width: 100%; /* عرض کامل */
+        }
+        .card-front .layer h1 {
+            font-size: 24px; /* اندازه متن کمتر */
+        }
+        .card-back .layer h2 {
+            font-size: 16px; /* اندازه متن کمتر */
+        }
+        .card-back .layer h3, .card-back .layer h4 {
+            font-size: 14px; /* اندازه متن کمتر */
+        }
+    }
+
+    @media (max-width: 480px) { /* گوشی */
+        body {
+            padding: 16px; /* فاصله داخلی کمتر */
+        }
+        .card-wrapper {
+            height: 200px;
+        }
+        .card-front .layer h1 {
+            font-size: 20px; /* اندازه متن کمتر */
+        }
+        .card-back .layer h2 {
+            font-size: 14px; /* اندازه متن کمتر */
+        }
+        .card-back .layer h3, .card-back .layer h4 {
+            font-size: 12px; /* اندازه متن کمتر */
+        }
     }
 </style>
 
